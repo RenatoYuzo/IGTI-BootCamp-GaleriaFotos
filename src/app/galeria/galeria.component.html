@@ -1,0 +1,30 @@
+<h1>{{ title }}</h1>
+
+<div *ngIf="fotos">
+  <img [src]="fotoAtual" />
+
+  <div>
+    <button (click)="primeiraFoto()" [disabled]="indexFotoAtual <= 0">
+      &lt;&lt;
+    </button>
+    <button (click)="anteriorFoto()" [disabled]="indexFotoAtual <= 0">
+      &lt;
+    </button>
+    {{ statusPagina }}
+    <button
+      (click)="proximaFoto()"
+      [disabled]="indexFotoAtual >= fotos.length - 1"
+    >
+      &gt;
+    </button>
+    <button
+      (click)="ultimaFoto()"
+      [disabled]="indexFotoAtual >= fotos.length - 1"
+    >
+      &gt;&gt;
+    </button>
+  </div>
+</div>
+<div *ngIf="!fotos">
+  <h3>Nenhuma foto</h3>
+</div>
